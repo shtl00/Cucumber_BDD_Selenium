@@ -13,6 +13,7 @@ public class Hooks {
         driverManager.runOnLocalBrowser();
         driverManager.maxBrowser();
         driverManager.openUrl();
+        driverManager.applyImplicitWait();
 
     }
     @After

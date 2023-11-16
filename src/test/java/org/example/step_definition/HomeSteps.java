@@ -7,8 +7,7 @@ import org.example.driver.DriverManager;
 import org.example.pages.HomePage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.endsWith;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class HomeSteps extends DriverManager {
     DriverManager driverManager=new DriverManager();
@@ -20,6 +19,10 @@ public class HomeSteps extends DriverManager {
         String myActualUrl= driverManager.getCurrentUrl();
         System.out.println(myActualUrl);
         assertThat(myActualUrl, is(endsWith("nopcommerce.com/")));
+//        validation through title
+        String actualTitle=driverManager.getPageTitle();
+        System.out.println(actualTitle);
+        assertThat(actualTitle,is(equalToIgnoringCase("nopCommerce demo store")));
     }
 
         @When("^I click on login button$")

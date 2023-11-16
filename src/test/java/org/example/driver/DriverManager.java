@@ -8,6 +8,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
 public class DriverManager {
     public static WebDriver driver;
     String browser="chrome";
@@ -50,10 +53,32 @@ public class DriverManager {
     public void closeBrowser(){
         driver.quit();
     }
-
     public void sleepBrowser(int ms) throws InterruptedException {
         Thread.sleep(ms);
 
     }
+public void applyImplicitWait(){
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+}
+public String getPageTitle(){
+       return driver.getTitle();
 
+}
+    public int generateRandomNumber(){
+        Random random = new Random();
+        // Obtain a number between [0 - 49].
+        return random.nextInt(50);
+    }
+
+    public static String getRandomString(int length) {
+        final String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ";
+        StringBuilder result = new StringBuilder();
+
+        while(length > 0) {
+            Random rand = new Random();
+            result.append(characters.charAt(rand.nextInt(characters.length())));
+            length--;
+        }
+        return result.toString();
+    }
 }
