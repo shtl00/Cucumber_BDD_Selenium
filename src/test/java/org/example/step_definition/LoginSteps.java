@@ -1,7 +1,7 @@
 package org.example.step_definition;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.example.driver.DriverManager;
 import org.example.pages.LoginPage;
 
@@ -29,6 +29,26 @@ public class LoginSteps extends DriverManager {
         System.out.println(myActualCurrentUrl);
         assertThat(myActualCurrentUrl, containsString(expectedUrlText));
 
+    }
+
+    @When("^I entre valid Email \"([^\"]*)\" and Password \"([^\"]*)\"$")
+    public void i_entre_valid_Email_and_Password(String email, String password) throws Throwable {
+        loginpage.entreEmailAndPassword(email,password );
 
     }
+
+    @When("^I click on login button on Login page$")
+    public void i_click_on_login_button_on_Login_page() throws Throwable {
+        loginpage.clickOnLoginButtonOnLogInPage();
+
+    }
+
+    @Then("^I should see logout button is displayed$")
+    public void i_should_see_logout_button_is_displayed() throws Throwable {
+        boolean isLogOutButtonDisplayed =loginpage.checkLogOutButtonIsDisplayed();
+        assertThat(isLogOutButtonDisplayed, is(true));
+    }
+
+
+
 }
