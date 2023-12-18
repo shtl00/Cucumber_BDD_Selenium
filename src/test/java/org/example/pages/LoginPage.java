@@ -17,7 +17,7 @@ public class LoginPage extends DriverManager {
     @FindBy(css=".login-button")
     public WebElement loginButtonOnLogin;
 
-    @FindBy(css="..ico-logout")
+    @FindBy(css=".ico-logout")
     public WebElement logOutButton;
 
 

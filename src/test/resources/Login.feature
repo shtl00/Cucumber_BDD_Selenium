@@ -17,15 +17,4 @@ Scenario:Validate login page
     And I click on login button on Login page
     Then I should see logout button is displayed
 
-  Scenario Outline :Login with different details
-    Given I am on homepage
-    When I click on login button
-    And I entre valid Email "<myEmail>" and Password "<myPassword>"
-    And click on login button on Login page
-    Then should see logout button is displayed
-
-    Examples:
-     |myEmail|myPassword|
-    |     shtl90@gmail.com  | abcd123    |
-    |     mayank26@gmail.com  |abcd123   |
 

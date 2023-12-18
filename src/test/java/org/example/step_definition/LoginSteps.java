@@ -48,7 +48,4 @@ public class LoginSteps extends DriverManager {
         boolean isLogOutButtonDisplayed =loginpage.checkLogOutButtonIsDisplayed();
         assertThat(isLogOutButtonDisplayed, is(true));
     }
-
-
-
 }
