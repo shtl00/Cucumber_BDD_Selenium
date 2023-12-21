@@ -17,16 +17,16 @@ public class RegistrationPage extends DriverManager{
     public WebElement firstName;
 
     @FindBy(id="LastName")
-    public WebElement lastname;
+    public WebElement lastName;
 
     @FindBy(id="Email")
     public WebElement emailId;
 
     @FindBy(id="Password")
-    public WebElement password;
+    public WebElement firstPassword;
 
     @FindBy(id="ConfirmPassword")
-    public WebElement confirmPassword;
+    public WebElement confirmPasswordInputBox;
 
     @FindBy(id="register-button")
     public WebElement registrationButton;
@@ -44,24 +44,39 @@ public class RegistrationPage extends DriverManager{
         firstName.clear();
         firstName.sendKeys("sheetal");}
     public void lastNameInputBox(){
-        lastname.clear();
-        lastname.sendKeys("parmar");}
+        lastName.clear();
+        lastName.sendKeys("parmar");}
 
     public void emailIdInputField(){
         emailId.clear();
-        emailId.sendKeys("shtl90@gmail.com");}
+        emailId.sendKeys("sheetalparmar@ymail.com");}
     public void passwordInputField(){
-        password.clear();
-        password.sendKeys("abcd123");}
+        firstPassword.clear();
+        firstPassword.sendKeys("abcd123");}
 
     public void setConfirmPasswordInputField(){
-        confirmPassword.clear();
-        confirmPassword.sendKeys("abcd123");}
+        confirmPasswordInputBox.clear();
+        confirmPasswordInputBox.sendKeys("abcd123");}
     public void lastRegistrationButton(){
         registrationButton.click();}
 
     public void confirmRegistrationCompletedText(){
-        registrationCompleted.isDisplayed();
+        registrationCompleted.getText();
+    }
+    public void entreRegistrationDetails(String firstname,String lastname,String email,String password,String confirmPassword) throws InterruptedException {
+        firstName.clear();
+        firstName.sendKeys(firstname);
+        lastName.clear();
+        lastName.sendKeys(lastname);
+        emailId.clear();
+        int myRandomNumber= driverManager.generateRandomNumber();
+        emailId.sendKeys(myRandomNumber+ email);
+        firstPassword.clear();
+        firstPassword.sendKeys(password);
+        confirmPasswordInputBox.clear();
+        confirmPasswordInputBox.sendKeys(confirmPassword);
+        driverManager.sleepBrowser(4000);
+
     }
 
 
