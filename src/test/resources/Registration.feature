@@ -1,4 +1,4 @@
-@BK
+@JK
 Feature:Registration
   As an end user
   I want to register to the website
