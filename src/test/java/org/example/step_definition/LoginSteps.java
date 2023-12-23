@@ -1,5 +1,6 @@
 package org.example.step_definition;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.example.driver.DriverManager;
@@ -37,7 +38,7 @@ public class LoginSteps extends DriverManager {
 
     }
 
-    @When("^I click on login button on Login page$")
+    @And("^I click on login button on Login page$")
     public void i_click_on_login_button_on_Login_page() throws Throwable {
         loginpage.clickOnLoginButtonOnLogInPage();
 
