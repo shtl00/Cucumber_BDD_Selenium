@@ -32,6 +32,7 @@ public class BasketSteps extends DriverManager {
     public void i_should_see(String checkOuts) throws Throwable {
         basketPage.clickOnBasket();
         basketPage.checkoutVisible();
+        Thread.sleep(1000);
 
     }
 }
