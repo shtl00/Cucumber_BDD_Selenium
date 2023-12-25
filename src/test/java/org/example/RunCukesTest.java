@@ -2,7 +2,6 @@ package org.example;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import org.example.driver.DriverManager;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -10,7 +9,7 @@ import org.junit.runner.RunWith;
 dryRun=false,
 strict=true,
 monochrome = true,
-tags = "@BK",
+tags = "@MK",
 plugin = "json:target/cucumber-report/cucumber.json")
 public class RunCukesTest{
     // a json report is generated as target/cucumber-report
