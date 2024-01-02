@@ -55,7 +55,7 @@ public class DriverManager {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.setHeadless(true);
+                options.setHeadless(false);// do (true) for headless
                 options.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(options);
                 break;
