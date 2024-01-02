@@ -1,12 +1,18 @@
 Feature:
   As an end user
   I can add product in wishlist
-@WL
+
+  @WL
   Scenario:
     Given I am on homepage
     And I select on "Books"
     When I select "Pride and Prejudice"book to wishlist
-    Then I should be able to see "Add to cart" button in wishlist
+    Then I should be able to see "Wishlist" text
+
+
+
+
+
 
 
 

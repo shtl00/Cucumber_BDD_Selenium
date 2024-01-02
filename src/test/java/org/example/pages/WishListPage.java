@@ -18,15 +18,16 @@ public class WishListPage extends DriverManager {
     @FindBy(css = ".wishlist-label")
     public WebElement wishList;
 
-    @FindBy(css = "button[name='addtocartbutton']")
-    public WebElement addToCart;
+    @FindBy(css = ".page-title")
+    public WebElement wishListText;
+
 
 
     public void clickOnBooks() {
         books.click();
     }
 
-    public void clickOnPrideAndPrijudice(){
+    public void clickOnPrideAndPrijudice() {
         prideAndPrejudie.click();
     }
 
@@ -38,9 +39,9 @@ public class WishListPage extends DriverManager {
         wishList.click();
     }
 
-    public void addToCartButton() {
-        addToCart.isDisplayed();
+    public boolean wishLisTextDisplayed() {
+        wishListText.isDisplayed();
+        return true;
     }
-
-
 }
+

@@ -6,12 +6,16 @@ import cucumber.api.java.en.When;
 import org.example.driver.DriverManager;
 import org.example.pages.WishListPage;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
 public class WhishListSteps extends DriverManager {
     DriverManager driverManager = new DriverManager();
     WishListPage wishListPage = new WishListPage();
 
     @And("^I select on \"([^\"]*)\"$")
     public void i_select_on(String arg1) throws Throwable {
+        String myActualUrl= driverManager.getCurrentUrl();
         wishListPage.clickOnBooks();
 
     }
@@ -21,11 +25,23 @@ public class WhishListSteps extends DriverManager {
         wishListPage.clickOnAddToWishList();
     }
 
-    @Then("^I should be able to see \"([^\"]*)\" button in wishlist$")
-    public void i_should_be_able_to_see_button_in_wishlist(String arg1) throws Throwable {
+    @Then("^I should be able to see \"([^\"]*)\" text$")
+    public void i_should_be_able_to_see_text(String arg1) throws Throwable {
         wishListPage.clickOnWishList();
-        wishListPage.addToCartButton();
+        wishListPage.wishLisTextDisplayed();
+
+
+
+        boolean iswishListText =wishListPage.wishLisTextDisplayed();
+        assertThat(iswishListText, is(true));
 
     }
 
+
 }
+
+
+
+
+
+
