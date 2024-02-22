@@ -15,10 +15,11 @@ public class WhishListSteps extends DriverManager {
 
     @And("^I select on \"([^\"]*)\"$")
     public void i_select_on(String arg1) throws Throwable {
-        String myActualUrl= driverManager.getCurrentUrl();
+        String myActualUrl = driverManager.getCurrentUrl();
         wishListPage.clickOnBooks();
 
     }
+
     @When("^I select \"([^\"]*)\"book to wishlist$")
     public void i_select_book_to_wishlist(String arg1) throws Throwable {
         wishListPage.clickOnPrideAndPrijudice();
@@ -27,14 +28,35 @@ public class WhishListSteps extends DriverManager {
 
     @Then("^I should be able to see \"([^\"]*)\" text$")
     public void i_should_be_able_to_see_text(String arg1) throws Throwable {
-        wishListPage.clickOnWishList();
+        wishListPage.clickOnWishListLink();
         wishListPage.wishLisTextDisplayed();
 
-
-
-        boolean iswishListText =wishListPage.wishLisTextDisplayed();
+        boolean iswishListText = wishListPage.wishLisTextDisplayed();
         assertThat(iswishListText, is(true));
 
+    }
+
+    @And("^I click on  \"([^\"]*)\" checkbox$")
+    public void i_click_on_checkbox(String arg1) throws Throwable {
+        wishListPage.clickOnCheckBox();
+
+    }
+
+    @And("^I add quantity$")
+    public void i_add_quantity() throws Throwable {
+        driverManager.waitUntilElementIsClickable(wishListPage.addToCart);
+        wishListPage.clickOnAddQuantity();
+
+        wishListPage.clickOnAddToCart();
+        driverManager.applyImplicitWait();
+    }
+
+    @Then("^I can should see \"([^\"]*)\"$")
+    public void i_can_should_see(String arg1) throws Throwable {
+
+        wishListPage.shoppingcartTextDisplayed();
+        boolean isShoppingCartvisible = wishListPage.shoppingcartTextDisplayed();
+        assertThat(isShoppingCartvisible, is(true));
     }
 
 

@@ -12,6 +12,7 @@ import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
 
 public class RegistrationSteps extends DriverManager {
 
@@ -25,7 +26,7 @@ public class RegistrationSteps extends DriverManager {
 
     }
 
-    @When("^I select \"([^\"]*)\"$")
+    @And("^I select \"([^\"]*)\"$")
     public void i_select(String arg1) throws Throwable {
         registrationPage.selectGenderRadioButton();
 
@@ -76,9 +77,11 @@ public class RegistrationSteps extends DriverManager {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+       boolean IsconfirmText=registrationPage.confirmRegistrationCompletedText();
+        assertThat(IsconfirmText,is(true));
 
+    }
 
-        }
 
 
     }

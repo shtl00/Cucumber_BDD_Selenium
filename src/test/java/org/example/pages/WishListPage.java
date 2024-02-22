@@ -17,9 +17,23 @@ public class WishListPage extends DriverManager {
 
     @FindBy(css = ".wishlist-label")
     public WebElement wishList;
-
+@FindBy(xpath="//*[@id=\"bar-notification\"]/div/p/a")
+public WebElement Wishlist;
     @FindBy(css = ".page-title")
     public WebElement wishListText;
+
+    @FindBy(name="addtocart")
+    public WebElement checkbox;
+
+    @FindBy(className = "qty-input")
+    public WebElement addQuantity;
+
+    @FindBy(xpath ="/html/body/div[6]/div[3]/div/div/div/div[2]/div[1]/form/div[2]/button[2]")
+    public WebElement addToCart;
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div/div/div[1]/h1")
+    public WebElement shoppingcart;
+
 
 
 
@@ -39,8 +53,31 @@ public class WishListPage extends DriverManager {
         wishList.click();
     }
 
+    public void clickOnWishListLink(){
+        wishList.click();
+    }
+
     public boolean wishLisTextDisplayed() {
         wishListText.isDisplayed();
+        return true;
+    }
+
+    public void clickOnCheckBox(){
+
+        checkbox.click();
+    }
+    public void clickOnAddQuantity(){
+        addQuantity.click();
+        addQuantity.clear();
+
+        addQuantity.sendKeys("2");
+    }
+    public void clickOnAddToCart(){
+        addToCart.click();
+        addToCart.click();
+    }
+    public boolean shoppingcartTextDisplayed(){
+        shoppingcart.isDisplayed();
         return true;
     }
 }

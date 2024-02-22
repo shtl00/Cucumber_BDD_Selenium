@@ -19,7 +19,8 @@ public class GiftCardPage extends DriverManager {
     @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/h2/a")
     public WebElement virtualGiftCard;
 
-    @FindBy(xpath = "//*[@id=\"giftcard_43_RecipientName\"]")
+
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[2]/div/div/form/div[2]/div[1]/div[2]/div[5]/div[1]/input")
     public WebElement recipientName;
 
     @FindBy(id = "giftcard_43_RecipientEmail")
@@ -33,10 +34,10 @@ public class GiftCardPage extends DriverManager {
 
     @FindBy(id = "giftcard_43_Message")
     public WebElement message;
-
     @FindBy(id = "add-to-cart-button-43")
     public WebElement addToCartGift;
-
+    @FindBy(xpath = "/html/body/div[6]/div[3]/div/div[3]/div/div[2]/div[2]/div[2]/div/div/div[1]/div/div[2]/div[3]/div[2]/button[1]")
+    public WebElement virtualGiftCardAdd;
 
     public void clickOnGiftCards() {
         giftCards.click();
@@ -51,15 +52,14 @@ public class GiftCardPage extends DriverManager {
     }
 
     public void clickOnVirtualGiftCard() {
+
         virtualGiftCard.click();
     }
-
-    public void entreGiftCardDetails(String recipientname,String RecipientEmail,String YourName,String YourEmail,String Message) throws InterruptedException {
+    public void entreGiftCardDetails(String Recipientname, String RecipientEmail, String YourName, String YourEmail, String Message) throws InterruptedException {
         recipientName.clear();
-        recipientName.sendKeys(recipientname);
-
-       recipientEmail.clear();
-    recipientEmail.sendKeys(RecipientEmail);
+        recipientName.sendKeys(Recipientname);
+        recipientEmail.clear();
+        recipientEmail.sendKeys(RecipientEmail);
         name.clear();
         name.sendKeys(YourName);
         email.clear();
@@ -70,10 +70,13 @@ public class GiftCardPage extends DriverManager {
 
     }
 
-    public void enreGiftCardAddToCart(){
+    public void entreGiftCardAddToCart() {
         addToCartGift.click();
     }
 
+    public void virtualGiftCardAddToCart() {
+        virtualGiftCardAdd.click();
+    }
 }
 
 

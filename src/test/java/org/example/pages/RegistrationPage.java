@@ -60,8 +60,9 @@ public class RegistrationPage extends DriverManager{
     public void lastRegistrationButton(){
         registrationButton.click();}
 
-    public void confirmRegistrationCompletedText(){
+    public boolean confirmRegistrationCompletedText(){
         registrationCompleted.getText();
+        return true;
     }
     public void entreRegistrationDetails(String firstname,String lastname,String email,String password,String confirmPassword) throws InterruptedException {
         firstName.clear();
