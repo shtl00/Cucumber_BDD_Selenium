@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverManager {
     public static WebDriver driver;
-    String browser="chrome";
+    String browser="edge";
     String baseUrl="https://demo.nopcommerce.com/";
 
     public DriverManager(){
@@ -55,7 +55,7 @@ public class DriverManager {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions options = new ChromeOptions();
-                options.setHeadless(true);
+                options.setHeadless(true);// do (true) for headless
                 options.addArguments("--window-size=1920,1080");
                 driver = new ChromeDriver(options);
                 break;

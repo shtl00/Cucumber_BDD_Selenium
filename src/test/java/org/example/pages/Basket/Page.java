@@ -1,4 +1,4 @@
-package org.example.pages;
+package org.example.pages.Basket;
 
 import org.example.driver.DriverManager;
 import org.openqa.selenium.WebElement;
@@ -7,19 +7,17 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.Map;
 
-public class BasketPage extends DriverManager {
-
-
+public class Page extends DriverManager {
     @FindBy(css ="#small-searchterms")
-   public WebElement searchInputBox;
+    public WebElement searchInputBox;
 
     @FindBy(css="button[type='submit']")
     public WebElement  searchButton;
 
-    @FindBy(css= "body > div:nth-child(7) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) > button:nth-child(1)")
+    @FindBy(xpath= "/html/body/div[6]/div[3]/div/div[2]/div/div[2]/div[3]/div/div[2]/div/div/div[2]/div/div[2]/div[3]/div[2]/button[1]")
     public WebElement addToCartButtton;
 
-    @FindBy(xpath="//p[@class='content']")
+    @FindBy(xpath="//*[@id=\"bar-notification\"]/div/p/a")
     public WebElement addToCartLink;
 
     //New scenario
@@ -42,7 +40,7 @@ public class BasketPage extends DriverManager {
     public WebElement checkoutButton;
 
     //checkout as guest
-    
+
     @FindBy(className="button-1.checkout-as-guest-button")
     public WebElement guestCheckout;
 
@@ -83,7 +81,7 @@ public class BasketPage extends DriverManager {
 
     public void searchInBox(){
         searchInputBox.click();
-      searchInputBox.clear();
+        searchInputBox.clear();
         searchInputBox.sendKeys("Jewelry");
     }
     public void clickOnSearchButton(){
@@ -94,6 +92,7 @@ public class BasketPage extends DriverManager {
         addToCartButtton.click();
     }
     public boolean addToCartLinkVisible(){
+        addToCartLink.click();
         addToCartLink.isDisplayed();
         return true;
     }
@@ -141,9 +140,9 @@ public class BasketPage extends DriverManager {
         firstName.sendKeys(firstname);
         lastName.clear();
         lastName.sendKeys(lastname);
-       emailId.clear();
-       emailId.click();
-       country.click();
+        emailId.clear();
+        emailId.click();
+        country.click();
         unitedKingdom.isSelected();
         city.sendKeys(City);
         this.address1.sendKeys(Address1);
@@ -153,6 +152,5 @@ public class BasketPage extends DriverManager {
 
         return true;
     }
-
 
 }
